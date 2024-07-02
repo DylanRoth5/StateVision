@@ -30,5 +30,5 @@ Welcome to StateVision, a cutting-edge real estate web application developed for
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/dylanroth5/statevision.git
+   git clone [https://github.com/dylanroth5/statevision.git](https://github.com/DylanRoth5/StateVision.git)
    cd Statevision
