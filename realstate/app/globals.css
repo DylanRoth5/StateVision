@@ -31,3 +31,8 @@ body {
     text-wrap: balance;
   }
 }
+
+.banner {
+  background-image: url(banner.jpg);
+  background-size: cover;
+}

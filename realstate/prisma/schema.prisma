@@ -3,8 +3,9 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 model RealEstate {
@@ -13,9 +14,30 @@ model RealEstate {
   description String?
   price Int?
   type String?
-  purpose String?
+  state String?
+  bathrooms Int?
+  bedrooms Int?
+  location String?
+  street String?
+  total_square_meters Int?
+  covered_square_meters Int?
+  details String?
+  url String?
   createdAt DateTime @default(now()) @db.Timestamptz(6)
   updatedAt DateTime @updatedAt
 
   @@map("real_states")
+}
+
+model User {
+  id Int @id @default(autoincrement())
+  name String
+  email String @unique
+  password String @unique
+  role String?
+  profile_image String?
+  createdAt DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime @updatedAt
+
+  @@map("users")
 }
