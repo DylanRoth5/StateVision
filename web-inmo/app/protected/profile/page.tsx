@@ -1,20 +1,21 @@
 import AuthButton from "@/components/AuthButton";
 import { CardDemo } from "@/components/card-text";
 import { Card } from "@/components/ui/card";
-import { NavigationMenuDemo } from "@/components/navMenu";
+import { Navigation } from "@/components/navMenu";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
+import Footer from "@/components/footer";
 
 
 export default async function ProfilePage() {
     const supabase = createClient();
 
     const {
-      data: { user },
+        data: { user },
     } = await supabase.auth.getUser();
-  
+
     if (!user) {
-      return redirect("/login");
+        return redirect("/login");
     }
     return <div>
         <div className="w-full">
@@ -25,7 +26,7 @@ export default async function ProfilePage() {
             <nav className="w-full flex justify-center border-b border-b-foreground/10 h-16">
                 <div className="w-full max-w-4xl flex justify-between items-center p-3 text-sm">
                     {/* <DeployButton /> */}
-                    <NavigationMenuDemo></NavigationMenuDemo>
+                    <Navigation></Navigation>
                     <AuthButton />
                 </div>
             </nav>
@@ -41,5 +42,7 @@ export default async function ProfilePage() {
         <div className="flex justify-center">
             <CardDemo></CardDemo>
         </div>
+
+        <Footer />
     </div>
 }

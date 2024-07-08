@@ -28,39 +28,43 @@ export default async function AuthButton() {
   };
 
   return user ? (
-    <div className="flex items-center gap-2">
-      Hey, {user.email}!
+    <div className="flex flex-row items-center gap-2">
+      <p className="text-sm">{user.email}</p>
+      <a href="/protected/profile"></a>
       <DropdownMenu>
         <DropdownMenuTrigger className="py-2 px-3 flex rounded-md no-underline bg-btn-background hover:bg-accent hover:text-accent-foreground">Options</DropdownMenuTrigger>
         <DropdownMenuContent>
           <DropdownMenuLabel>Account</DropdownMenuLabel>
           <DropdownMenuSeparator />
-          <DropdownMenuItem>
-            <Link href="/profile">Profile</Link>
+          <DropdownMenuItem asChild>
+            <a href="/protected/profile">Profile</a>
           </DropdownMenuItem>
-          <DropdownMenuItem>
-            <Link href="/config">Config</Link>
+          <DropdownMenuItem asChild>
+            <a href="/protected/config">Config</a>
           </DropdownMenuItem>
-          <DropdownMenuItem>
+          <DropdownMenuItem asChild>
             <form action={signOut}>
-              Logout
+              <button type="submit">Logout</button>
             </form>
           </DropdownMenuItem>
           <DropdownMenuSeparator />
           <DropdownMenuLabel>Admin</DropdownMenuLabel>
           <DropdownMenuSeparator />
-          <DropdownMenuItem>Dashboard</DropdownMenuItem>
+          <DropdownMenuItem asChild>
+          <Link href="/protected/dashboard">Dashboard</Link></DropdownMenuItem>
           <DropdownMenuSeparator />
           <ModeToggle />
         </DropdownMenuContent>
       </DropdownMenu>
     </div>
   ) : (
+    <Button asChild>
     <Link
       href="/login"
       className="py-2 px-3 flex rounded-md no-underline bg-btn-background hover:bg-btn-background-hover"
     >
       Login
     </Link>
+    </Button>
   );
 }
