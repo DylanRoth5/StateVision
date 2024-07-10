@@ -5,8 +5,10 @@ import Footer from "@/components/footer";
 import Link from 'next/link';
 const prisma = new PrismaClient()
 
+
+
 export default async function realEstate() {
-  const news = await prisma.news.findMany({
+  const news: { id: number; title: string; description: string; url: string | null; image: string | null; createdAt: Date; updatedAt: Date; }[] = await prisma.news.findMany({
     orderBy: {
       createdAt: 'desc'
     }
