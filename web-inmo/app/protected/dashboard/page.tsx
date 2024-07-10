@@ -224,7 +224,7 @@ export default async function DashboardPage() {
                   <TableCell className="font-medium text-center">
                     <form action={updateRS}>
                       <input type="hidden" name="id" value={property.id} />
-                      <input className="bg-inherit p-2 text-white text-center text-md" type="number" name="price" placeholder={`${property.price}`?? 0} defaultValue={property.price?? 0} />
+                      <input className="bg-inherit p-2 text-white text-center text-md" type="number" name="price" placeholder={`${property.price}`?? '0'} defaultValue={property.price?? 0} />
                       <input type="submit" hidden />
                     </form>
                   </TableCell>
@@ -252,28 +252,28 @@ export default async function DashboardPage() {
                   <TableCell className="font-medium text-center">
                     <form action={updateRS}>
                       <input type="hidden" name="id" value={property.id} />
-                      <input className="bg-inherit p-2 text-white text-center text-md" type="number" name="covered_square_meters" placeholder={`${property.covered_square_meters}`?? 0} defaultValue={property.covered_square_meters?? 0} />
+                      <input className="bg-inherit p-2 text-white text-center text-md" type="number" name="covered_square_meters" placeholder={`${property.covered_square_meters}`?? '0'} defaultValue={property.covered_square_meters?? 0} />
                       <input type="submit" hidden />
                     </form>
                   </TableCell>
                   <TableCell className="font-medium text-center">
                     <form action={updateRS}>
                       <input type="hidden" name="id" value={property.id} />
-                      <input className="bg-inherit p-2 text-white text-center text-md" type="number" name="total_square_meters" placeholder={`${property.total_square_meters}`?? 0} defaultValue={property.total_square_meters?? 0} />
+                      <input className="bg-inherit p-2 text-white text-center text-md" type="number" name="total_square_meters" placeholder={`${property.total_square_meters}`?? '0'} defaultValue={property.total_square_meters?? 0} />
                       <input type="submit" hidden />
                     </form>
                   </TableCell>
                   <TableCell className="font-medium text-center">
                     <form action={updateRS}>
                       <input type="hidden" name="id" value={property.id} />
-                      <input className="bg-inherit p-2 text-white text-center text-md" type="number" name="bathrooms" placeholder={`${property.bathrooms}`?? 0} defaultValue={property.bathrooms?? 0} />
+                      <input className="bg-inherit p-2 text-white text-center text-md" type="number" name="bathrooms" placeholder={`${property.bathrooms}`?? '0'} defaultValue={property.bathrooms?? 0} />
                       <input type="submit" hidden />
                     </form>
                   </TableCell>
                   <TableCell className="font-medium text-center">
                     <form action={updateRS}>
                       <input type="hidden" name="id" value={property.id} />
-                      <input className="bg-inherit p-2 text-white text-center text-md" type="number" name="bedrooms" placeholder={`${property.bedrooms}`?? 0} defaultValue={property.bedrooms?? 0} />
+                      <input className="bg-inherit p-2 text-white text-center text-md" type="number" name="bedrooms" placeholder={`${property.bedrooms}`?? '0'} defaultValue={property.bedrooms?? 0} />
                       <input type="submit" hidden />
                     </form>
                   </TableCell>
