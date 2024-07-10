@@ -22,7 +22,7 @@ export default async function realEstate() {
       <div className="flex-1 flex flex-col gap-10 mb-10 max-w-4xl px-3">
         <h1 className="text-4xl font-bold">Noticias y avisos</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {news.map((news, index) => (
+        {news.map((news: { id: number; title: string; description: string; url: string | null; image: string | null; createdAt: Date; updatedAt: Date; }, index) => (
             <Link href={`/news/${news.id}`} key={index}>
               <Card key={index} className="cursor-pointer hover:scale-105 transition duration-200">
                 <CardHeader className="text-xl font-bold">
