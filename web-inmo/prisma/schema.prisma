@@ -37,3 +37,13 @@ model users {
   createdAt     DateTime @default(now()) @db.Timestamptz(6)
   updatedAt     DateTime
 }
+
+model news {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  url         String?
+  image       String?
+  createdAt   DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt   DateTime
+}

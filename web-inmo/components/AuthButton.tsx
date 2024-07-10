@@ -29,19 +29,19 @@ export default async function AuthButton() {
 
   return user ? (
     <div className="flex flex-row items-center gap-2">
-      <p className="text-sm">{user.email}</p>
+      <p className="text-sm font-bold hidden md:block">{user.email}</p>
       <a href="/protected/profile"></a>
       <DropdownMenu>
         <DropdownMenuTrigger className="py-2 px-3 flex rounded-md no-underline bg-btn-background hover:bg-accent hover:text-accent-foreground">Options</DropdownMenuTrigger>
         <DropdownMenuContent>
           <DropdownMenuLabel>Account</DropdownMenuLabel>
           <DropdownMenuSeparator />
-          <DropdownMenuItem asChild>
+          {/* <DropdownMenuItem asChild>
             <a href="/protected/profile">Profile</a>
-          </DropdownMenuItem>
-          <DropdownMenuItem asChild>
+          </DropdownMenuItem> */}
+          {/* <DropdownMenuItem asChild>
             <a href="/protected/config">Config</a>
-          </DropdownMenuItem>
+          </DropdownMenuItem> */}
           <DropdownMenuItem asChild>
             <form action={signOut}>
               <button type="submit">Logout</button>
@@ -52,8 +52,6 @@ export default async function AuthButton() {
           <DropdownMenuSeparator />
           <DropdownMenuItem asChild>
           <Link href="/protected/dashboard">Dashboard</Link></DropdownMenuItem>
-          <DropdownMenuSeparator />
-          <ModeToggle />
         </DropdownMenuContent>
       </DropdownMenu>
     </div>

@@ -85,6 +85,9 @@ export async function Navigation() {
               <ListItem href="/realstate" title="Inmuebles">
                 Inmuebles en Entre Rios, Argentina.
               </ListItem>
+              <ListItem href="/news" title="Noticias">
+                Pagina de noticias y avisos relacionados a la Inmobiliaria.
+              </ListItem>
               <ListItem href="/#about" title="Sobre Nosotros">
                 Sobre Nosotros. Lorena Huck.
               </ListItem>
