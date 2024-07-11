@@ -26,6 +26,7 @@ export default async function updateRS(data){
     const covered_square_meters = data.get('covered_square_meters') ? parseInt(data.get('covered_square_meters')) : property.covered_square_meters;
     const total_square_meters = data.get('total_square_meters') ? parseInt(data.get('total_square_meters')) : property.total_square_meters;
     const details = data.get('details') ? data.get('details') : property.details;
+    const image_url = data.get('image_url') ? data.get('image_url') : property.image_url;
     const url = data.get('url') ? data.get('url') : property.url;
     try{
         await prisma.real_states.update({
@@ -45,6 +46,7 @@ export default async function updateRS(data){
                 covered_square_meters,
                 total_square_meters,
                 details,
+                image_url,
                 url
             }
         })

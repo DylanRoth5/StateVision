@@ -16,7 +16,7 @@ export default async function updateNews(formdata){
 
     const title = formdata.get('title') ? formdata.get('title') : news.title;
     const description = formdata.get('description') ? formdata.get('description') : news.description;
-    const image = formdata.get('image') ? formdata.get('image') : news.image;
+    const image_url = formdata.get('image_url') ? formdata.get('image_url') : news.image_url;
     const url = formdata.get('url') ? formdata.get('url') : news.url;
     try{
         await prisma.news.update({
@@ -26,7 +26,7 @@ export default async function updateNews(formdata){
             data: {
                 title,
                 description,
-                image,
+                image_url,
                 url
             }
         })

@@ -8,43 +8,51 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
+import Image from "next/image"
+import Link from "next/link";
 
 interface HeaderProps {
   headerData: {
     id: number;
     title: string;
     description: string | null;
-    // Include other property types as necessary
+    image_url: string | null;
+    url: string;
   }[];
 }
 
 
 export default function Header({ headerData }: HeaderProps) {
 
+
   return (
     <div className=" text-white banner flex flex-col align-middle w-6xl self-center">
-      <Carousel className="max-w-6xl">
+      <Carousel className="max-w-4xl">
         <CarouselContent className="">
           {headerData.map((data, index) => (
             <CarouselItem key={index} className="">
               <div>
                 <Card>
-                  <a href={`/realstate/${data.id}`}>
-                    <CardContent className="flex bg-orange-400 aspect-video items-center justify-center p-6">
-                      <span className="text-4xl font-semibold">{data.title}</span>
+                  <Link href={`/realstate/${data.id}`}>
+                    <CardContent className=" bg-orange-600 aspect-video items-center justify-center p-1">
+                      {
+                        data.image_url ?
+                        <Image src={data.image_url} alt={data.title} width={500} height={500} className="object-cover w-full aspect-video"/>
+                        : <span className="text-4xl font-bold">{data.title}</span>
+                      }
                     </CardContent>
-                  </a>
+                  </Link>
                 </Card>
               </div>
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="translate-x-[200%]"/>
-        <CarouselNext className="translate-x-[-230%]"/>
+        <CarouselPrevious className="scale-150 translate-x-[230%]" />
+        <CarouselNext className="scale-150 translate-x-[-230%]" />
       </Carousel>
       <div className="self-start bg-gradient-to-r from-black from-[-10%] to-transparent  pl-4 pb-4 w-1/2 h-2/3 flex flex-col justify-end translate-y-[-100%]">
-        <h1 className="text-4xl mb-2 font-bold text-secondary-foreground">Inmuebles</h1>
-        <p className="text-xl italic text-secondary-foreground">"Encuentra el hogar de tus sueños"</p>
+        <h1 className="text-4xl mb-2 font-bold">Inmuebles</h1>
+        <p className="text-xl italic">"Encuentra el hogar de tus sueños"</p>
       </div>
     </div>
   );

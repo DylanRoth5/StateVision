@@ -1,5 +1,6 @@
 import Nav from "@/components/Nav";
 import { PrismaClient } from "@prisma/client";
+import Image from "next/image";
 const prisma = new PrismaClient();
 
 export default async function NewsPage({params}: {params: {id: string}}) {
@@ -13,11 +14,19 @@ export default async function NewsPage({params}: {params: {id: string}}) {
   return (
     <div className="min-h-screen">
       <Nav />
-      <main className="px-4 py-10 text-center">
+      {
+        news.image_url ? <Image src={news.image_url} alt={news.title} width={1000} height={1000} className="object-cover w-full max-h-96" /> : null
+      }
+      
+      {
+        news.image_url ? <div className="w-full h-20 bg-gradient-to-t from-black to-transparent translate-y-[-100%]">
+      </div> : null
+      }
+      <main className={`px-4 text-center ${ news.image_url? `translate-y-[-50%]` : `py-10` } `}>
         <div className="flex justify-center items-center">
           <div className="max-w-md">
             {news ? (
-              <>
+              <div>
                 <h1 className="text-4xl font-bold mb-4">{news.title}</h1>
                 <div className="text-lg leading-relaxed mb-6 hover:scale-105 transition duration-200">
                   {
@@ -26,7 +35,7 @@ export default async function NewsPage({params}: {params: {id: string}}) {
                 </div>
                 <p className="text-lg leading-relaxed mb-6">{news.description}</p>
                 <p className="text-gray-500">{news.updatedAt.toISOString()}</p>
-              </>
+              </div>
             ) : (
               <p className="text-lg leading-relaxed mb-6">News not found</p>
             )}

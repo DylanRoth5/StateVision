@@ -24,6 +24,7 @@ model real_states {
   state                 String?
   street                String?
   total_square_meters   Int?
+  image_url             String?
   url                   String?
 }
 
@@ -43,7 +44,7 @@ model news {
   title       String
   description String
   url         String?
-  image       String?
+  image_url   String?
   createdAt   DateTime @default(now()) @db.Timestamptz(6)
   updatedAt   DateTime
 }
