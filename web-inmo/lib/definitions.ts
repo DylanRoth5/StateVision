@@ -1,5 +1,5 @@
 
-interface NewsData {
+export type news = {
   id: string;
   title: string;
   description: string;
@@ -9,7 +9,7 @@ interface NewsData {
   updatedAt: Date;
 }
 
-interface RealStateData {
+export type real_state = {
   id: string;
   title: string;
   description: string;
@@ -28,5 +28,3 @@ interface RealStateData {
   url: string;
   image_url: string;
 }
-
-export default interface MyInterface { NewsData: any, RealStateData: any }

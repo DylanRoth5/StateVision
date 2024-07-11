@@ -23,8 +23,6 @@ interface HeaderProps {
 
 
 export default function Header({ headerData }: HeaderProps) {
-
-
   return (
     <div className=" text-white banner h-96 flex flex-col align-middle w-6xl self-center">
       <Carousel className="max-w-4xl">

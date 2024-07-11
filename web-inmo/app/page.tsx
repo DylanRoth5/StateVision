@@ -5,8 +5,8 @@ import Footer from "@/components/footer";
 import { Separator } from "@/components/ui/separator";
 import Galery from "@/components/galery";
 import About from "@/components/about";
-
-const prisma = new PrismaClient()
+import prisma from '@/lib/prisma'
+import { real_states, news } from '@prisma/client'
 
 export default async function Index() {
   const properties = await prisma.real_states.findMany({
@@ -27,12 +27,12 @@ export default async function Index() {
     <div className="flex-1 w-full flex flex-col items-center">
       <Nav/>
 
-      <Header headerData={properties} />
+      <Header headerData={properties as real_states[]} />
 
       <Separator className="max-w-4xl" />
 
       <Galery
-        itemsArray={news}
+        itemsArray={news as news[]}
         title="Avisos y Noticias"
         type="news"
         notice />
@@ -40,7 +40,7 @@ export default async function Index() {
       <Separator className="max-w-4xl" />
 
       <Galery
-        itemsArray={properties}
+        itemsArray={properties as real_states[]}
         title="Propiedades nuevas"
         type="realstate"
         notice />
