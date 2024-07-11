@@ -26,6 +26,38 @@ import Galery from "@/components/galery";
 import TableContent from "@/components/table";
 const prisma = new PrismaClient()
 
+
+interface NewsData {
+  id: number;
+  title: string;
+  description: string;
+  image_url: string;
+  url: string;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+interface RealStateData {
+  id: number;
+  title: string;
+  description: string;
+  price: number;
+  type: string;
+  createdAt: Date;
+  updatedAt: Date;
+  bathrooms: number;
+  bedrooms: number;
+  covered_square_meters: number;
+  total_square_meters: number;
+  details: string;
+  location: string;
+  street: string;
+  state: string;
+  url: string;
+  image_url: string;
+}
+
+
 export default async function DashboardPage() {
 
   const properties = await prisma.real_states.findMany({
@@ -59,14 +91,14 @@ export default async function DashboardPage() {
       <TableContent
         title="News"
         caption="All News"
-        itemsArray={news}
+        itemsArray={news as NewsData[]}
         actions={{ add: addNews, upd: updateNews, del: deleteNews }}
       />
 
       <TableContent
         title="Properties"
         caption="All Properties"
-        itemsArray={properties}
+        itemsArray={properties as RealStateData[]}
         actions={{ add: addRS, upd: updateRS, del: deleteRS }}
       />
 

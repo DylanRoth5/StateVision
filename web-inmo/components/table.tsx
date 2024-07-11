@@ -1,4 +1,3 @@
-import deleteNews from '@/app/protected/actions/deleteNews';
 import {
   Table,
   TableHeader,
@@ -10,14 +9,41 @@ import {
   TableCaption,
 }
   from './ui/table'
-import updateNews from '@/app/protected/actions/updateNews';
-import addNews from '@/app/protected/actions/addNews';
-import { news, real_states } from '@prisma/client';
+
+interface NewsData {
+  id: number;
+  title: string;
+  description: string;
+  image_url: string;
+  url: string;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+interface RealStateData {
+  id: number;
+  title: string;
+  description: string;
+  price: number;
+  type: string;
+  createdAt: Date;
+  updatedAt: Date;
+  bathrooms: number;
+  bedrooms: number;
+  covered_square_meters: number;
+  total_square_meters: number;
+  details: string;
+  location: string;
+  street: string;
+  state: string;
+  url: string;
+  image_url: string;
+}
 
 interface TableData {
   title: string;
   caption: string;
-  itemsArray: news[] | real_states[];
+  itemsArray: NewsData[] | RealStateData[];
   actions: { add: (data: FormData) => Promise<void>, upd: (data: FormData) => Promise<void>, del: (data: FormData) => Promise<void> };
 }
 
@@ -32,7 +58,7 @@ export default function TableContent({ title, caption, itemsArray, actions }: Ta
             <TableRow>
               <TableHead className="text-center">Delete</TableHead>
               {
-                Object.keys(itemsArray[0]).map((item) => (
+                Object.keys(itemsArray[0] || {}).map((item) => (
                   <TableHead className="text-center">{item}</TableHead>
                 ))
               }
@@ -44,7 +70,7 @@ export default function TableContent({ title, caption, itemsArray, actions }: Ta
                 <TableCell><button type="submit" className="rounded-lg bg-green-700 p-2 bg-opacity-50 hover:bg-green-500">Add</button></TableCell>
                 <TableCell className="bg-inherit p-2 text-white text-center text-md">ID</TableCell>
                 {
-                  Object.keys(itemsArray[0]).map((item) => (
+                  Object.keys(itemsArray[0] || {}).map((item) => (
                     (item != 'id' && item != 'createdAt' && item != 'updatedAt') ?
                       <TableCell><input className="bg-inherit p-2 text-white text-center text-md" type="text" name={item} placeholder={item.toUpperCase()} /></TableCell> : null
                   ))
@@ -63,7 +89,7 @@ export default function TableContent({ title, caption, itemsArray, actions }: Ta
                 </TableCell>
                 <TableCell className="text-center">{item.id}</TableCell>
                 {
-                  Object.keys(itemsArray[0]).map((keys) => (
+                  Object.keys(itemsArray[0] || {}).map((keys) => (
                     (keys != 'id' && keys != 'createdAt' && keys != 'updatedAt') ?
                       <TableCell className="font-medium text-center">
                         <form action={actions.upd}>
