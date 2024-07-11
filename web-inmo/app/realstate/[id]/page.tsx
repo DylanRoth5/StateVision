@@ -2,8 +2,6 @@ import Nav from "@/components/Nav";
 import { PrismaClient } from "@prisma/client";
 import Link from "next/link";
 import Image from "next/image";
-import Galery from "@/components/galery";
-// import findURS from "../../serverActions/findURS";
 const prisma = new PrismaClient();
 
 export default async function RealStatePage({ params }: { params: { id: string } }) {
@@ -13,7 +11,6 @@ export default async function RealStatePage({ params }: { params: { id: string }
       id: parseInt(params.id)
     }
   });
-  // const property = await findURS(new URLSearchParams({ id: params.id, path: `/realstate/${params.id}` }));
 
   return (
     <div>
