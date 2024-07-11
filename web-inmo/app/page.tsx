@@ -1,5 +1,4 @@
 import Header from "@/components/Header";
-import { PrismaClient } from '@prisma/client'
 import Nav from "@/components/Nav";
 import Footer from "@/components/footer";
 import { Separator } from "@/components/ui/separator";

@@ -9,7 +9,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import ModeToggle from "./modeToggle"
 import { Button } from "./ui/button"
 
 export default async function AuthButton() {
@@ -36,12 +35,6 @@ export default async function AuthButton() {
         <DropdownMenuContent>
           <DropdownMenuLabel>Account</DropdownMenuLabel>
           <DropdownMenuSeparator />
-          {/* <DropdownMenuItem asChild>
-            <a href="/protected/profile">Profile</a>
-          </DropdownMenuItem> */}
-          {/* <DropdownMenuItem asChild>
-            <a href="/protected/config">Config</a>
-          </DropdownMenuItem> */}
           <DropdownMenuItem asChild>
             <form action={signOut}>
               <button type="submit">Logout</button>
@@ -51,18 +44,19 @@ export default async function AuthButton() {
           <DropdownMenuLabel>Admin</DropdownMenuLabel>
           <DropdownMenuSeparator />
           <DropdownMenuItem asChild>
-          <Link href="/protected/dashboard">Dashboard</Link></DropdownMenuItem>
+            <Link href="/protected/dashboard">Dashboard</Link>
+          </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
     </div>
   ) : (
     <Button asChild>
-    <Link
-      href="/login"
-      className="py-2 px-3 flex rounded-md no-underline bg-btn-background hover:bg-btn-background-hover"
-    >
-      Login
-    </Link>
+      <Link
+        href="/login"
+        className="py-2 px-3 flex rounded-md no-underline bg-btn-background hover:bg-btn-background-hover"
+      >
+        Login
+      </Link>
     </Button>
   );
 }

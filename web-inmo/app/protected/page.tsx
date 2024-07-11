@@ -1,17 +1,12 @@
-import DeployButton from "@/components/DeployButton";
-import AuthButton from "@/components/AuthButton";
 import { createClient } from "@/utils/supabase/server";
 import Header from "@/components/Header";
 import { redirect } from "next/navigation";
 import Nav from "@/components/Nav";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Footer from "@/components/footer";
-import { PrismaClient } from '@prisma/client'
 import { Separator } from "@/components/ui/separator";
-import Link from "next/link";
 import About from "@/components/about";
 import Galery from "@/components/galery";
-const prisma = new PrismaClient()
+import prisma from '@/lib/prisma'
 
 export default async function ProtectedPage() {
   const supabase = createClient();

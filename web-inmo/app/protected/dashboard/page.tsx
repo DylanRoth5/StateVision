@@ -1,30 +1,14 @@
 import Footer from "@/components/footer";
 import Nav from "@/components/Nav";
-import Link from "next/link";
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableFooter,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table"
 import deleteRS from "../actions/deleteRS";
 import addRS from "../actions/addRS";
 import updateRS from "../actions/updateRS";
 import addNews from "../actions/addNews";
 import deleteNews from "../actions/deleteNews";
 import updateNews from "../actions/updateNews";
-
-
-import { PrismaClient } from '@prisma/client'
-import { Card } from "@/components/ui/card";
-import { title } from "process";
 import Galery from "@/components/galery";
 import TableContent from "@/components/table";
-const prisma = new PrismaClient()
+import prisma from '@/lib/prisma'
 
 
 interface NewsData {

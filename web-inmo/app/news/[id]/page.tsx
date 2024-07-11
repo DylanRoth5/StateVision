@@ -1,7 +1,6 @@
 import Nav from "@/components/Nav";
-import { PrismaClient } from "@prisma/client";
 import Image from "next/image";
-const prisma = new PrismaClient();
+import prisma from '@/lib/prisma'
 
 export default async function NewsPage({params}: {params: {id: string}}) {
   const news = await prisma.news.findUnique({
