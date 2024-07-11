@@ -2,7 +2,9 @@ import Nav from "@/components/Nav";
 import { PrismaClient } from "@prisma/client";
 import Link from "next/link";
 import Image from "next/image";
+import { SupabaseClient } from "@supabase/supabase-js";
 const prisma = new PrismaClient();
+
 
 export default async function RealStatePage({ params }: { params: { id: string } }) {
 
