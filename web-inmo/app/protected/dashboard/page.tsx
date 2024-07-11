@@ -41,10 +41,10 @@ export default async function DashboardPage() {
   })
 
   const stats = [
-    { id: 100, title: 'Total News', description: 'This is a description' },
-    { id: 100, title: 'Total Properties', description: 'This is a description' },
-    { id: 100, title: 'Total Sales', description: 'This is a description' },
-    { id: 100, title: 'Total Visits', description: 'This is a description' },
+    { id: 100, title: 'Total News', description: 'This is a description', image_url: null, url: '' },
+    { id: 100, title: 'Total Properties', description: 'This is a description', image_url: null, url: '' },
+    { id: 100, title: 'Total Sales', description: 'This is a description', image_url: null, url: '' },
+    { id: 100, title: 'Total Visits', description: 'This is a description', image_url: null, url: ''},
   ]
 
   return (
