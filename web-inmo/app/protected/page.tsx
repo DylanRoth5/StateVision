@@ -24,24 +24,20 @@ export default async function ProtectedPage() {
     return redirect("/login");
   }
 
-  // const properties = await prisma.real_states.findMany({
-  //   take: 8,
-  //   orderBy: {
-  //     createdAt: 'desc'
-  //   }
-  // })
+  const properties = await prisma.real_states.findMany({
+    take: 8,
+    orderBy: {
+      createdAt: 'desc'
+    }
+  })
 
-  // const news = await prisma.news.findMany({
-  //   take: 3,
-  //   orderBy: {
-  //     createdAt: 'desc'
-  //   }
-  // })
+  const news = await prisma.news.findMany({
+    take: 3,
+    orderBy: {
+      createdAt: 'desc'
+    }
+  })
 
-
-  const properties = await supabase.from('real_states').select('*').limit(8).order('createdAt', { ascending: false })
-
-  const news = await supabase.from('news').select('*').limit(3).order('createdAt', { ascending: false }) 
 
   return (
     <div className="flex-1 w-full flex flex-col items-center">
@@ -52,12 +48,12 @@ export default async function ProtectedPage() {
         <Nav></Nav>
       </div>
 
-      <Header headerData={properties.data} />
+      <Header headerData={properties} />
 
       <Separator className="max-w-4xl" />
 
       <Galery
-        itemsArray={news.data}
+        itemsArray={news}
         title="Avisos y Noticias"
         type="news"
         notice />
@@ -65,7 +61,7 @@ export default async function ProtectedPage() {
       <Separator className="max-w-4xl" />
 
       <Galery
-        itemsArray={properties.data}
+        itemsArray={properties}
         title="Propiedades nuevas"
         type="realstate"
         notice />

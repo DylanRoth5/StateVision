@@ -26,15 +26,15 @@ export default function Header({ headerData }: HeaderProps) {
 
 
   return (
-    <div className=" text-white banner flex flex-col align-middle w-6xl self-center">
+    <div className=" text-white banner h-96 flex flex-col align-middle w-6xl self-center">
       <Carousel className="max-w-4xl">
         <CarouselContent className="">
-          {headerData.map((data, index) => (
+          { headerData ? headerData.map((data, index) => (
             <CarouselItem key={index} className="">
               <div>
                 <Card>
                   <Link href={`/realstate/${data.id}`}>
-                    <CardContent className=" bg-orange-600 aspect-video items-center justify-center p-1">
+                    <CardContent className=" bg-orange-600 aspect-video   items-center justify-center p-1">
                       {
                         data.image_url ?
                         <Image src={data.image_url} alt={data.title} width={500} height={500} className="object-cover w-full aspect-video"/>
@@ -45,7 +45,8 @@ export default function Header({ headerData }: HeaderProps) {
                 </Card>
               </div>
             </CarouselItem>
-          ))}
+          )): <div className="text-4xl font-bold">Loading...</div>
+        }
         </CarouselContent>
         <CarouselPrevious className="scale-150 translate-x-[230%]" />
         <CarouselNext className="scale-150 translate-x-[-230%]" />
